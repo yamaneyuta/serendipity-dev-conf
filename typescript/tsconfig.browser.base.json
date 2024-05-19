@@ -2,7 +2,7 @@
 	"extends": "./tsconfig.base",
 	"compilerOptions": {
 		"moduleResolution": "Bundler",
-		"target": "ES2015",
+		"target": "ES2020",
 		"module": "ESNext",
 		"jsx": "react-jsx",
 	}

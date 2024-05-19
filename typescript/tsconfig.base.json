@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+
+		// `skipLibCheck`が無効になっている場合、`*.d.ts`ファイルに対する型チェックを行うため、コンパイル時間が増加する。
+		// また、型チェックエラーが大量に発生する可能性があるため、プロジェクト毎に有効にするかどうかを検討する。
+		"skipLibCheck": false,
+	}
+}

@@ -3,6 +3,7 @@
 	"version": "0.8.0",
 	"files": [
 		"docker",
-		"typescript"
+		"typescript",
+		"wp-scripts"
 	]
 }

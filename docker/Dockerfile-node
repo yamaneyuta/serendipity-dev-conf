@@ -8,8 +8,6 @@
 # - hardhat 2.22.3がnodejs 22.x系で動作しないため、20.x系を指定
 FROM ubuntu:24.04
 
-RUN ln -sf /usr/share/zoneinfo/${TIMEZONE:-Asia/Tokyo} /etc/localtime
-
 RUN apt update && \
     apt install git curl -y && \
     \

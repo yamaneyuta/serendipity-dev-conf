@@ -9,6 +9,14 @@ config.rules = {
 
 	// `if`ブロック内で`return`がある場合、`else`ブロックを省略する設定を`off`に変更
 	'no-else-return': 'off',
+
+	'jsdoc/check-tag-names': [
+		'error',
+		{
+			// @remarksタグを許可
+			definedTags: [ 'remarks' ],
+		},
+	],
 };
 
 module.exports = config;

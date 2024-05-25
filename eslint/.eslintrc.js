@@ -1,3 +1,4 @@
+/** @type {import('eslint').ESLint.ConfigData} */
 const config = require( '@wordpress/eslint-plugin/configs/recommended' );
 
 config.rules = {

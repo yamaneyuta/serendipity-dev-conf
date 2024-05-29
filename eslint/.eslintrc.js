@@ -19,4 +19,10 @@ config.rules = {
 	],
 };
 
+config.settings["import/resolver"] = {
+	// `eslint-import-resolver-typescript`
+	// -> `import/named`を解決
+    typescript: {}
+}
+
 module.exports = config;

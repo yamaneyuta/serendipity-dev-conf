@@ -10,7 +10,7 @@ const main = async () => {
 	await updateRepost();
 };
 
-const updateRepost = () => {
+const updateRepost = async () => {
 	// コマンドを実行したディレクトリにあるpackage.jsonを読み込む
 	const cwd = process.cwd();
 	const packageJsonPath = path.join( cwd, 'package.json' );
@@ -36,15 +36,33 @@ const updateRepost = () => {
 	console.log( 'deletePackages', deletePackages );
 	spawn( 'npm', [ 'uninstall', ...deletePackages ], { stdio: 'inherit' } );
 
+	const promises = [] as Promise< void >[];
+
 	// dependenciesのパッケージを再インストール
 	if ( githubDependencies.length > 0 ) {
 		console.log(
 			'npm install',
 			githubDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` )
 		);
-		spawn( 'npm', [ 'install', ...githubDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` ) ], {
-			stdio: 'inherit',
-		} );
+		const p = spawn(
+			'npm',
+			[ 'install', ...githubDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` ) ],
+			{
+				stdio: 'inherit',
+			}
+		);
+
+		promises.push(
+			new Promise< void >( ( resolve, reject ) => {
+				p.on( 'close', ( code ) => {
+					if ( code === 0 ) {
+						resolve();
+					} else {
+						reject( code );
+					}
+				} );
+			} )
+		);
 	}
 	// devDependenciesのパッケージを再インストール
 	if ( githubDevDependencies.length > 0 ) {
@@ -52,14 +70,28 @@ const updateRepost = () => {
 			'npm install',
 			githubDevDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` )
 		);
-		spawn(
+		const p = spawn(
 			'npm',
 			[ 'install', '-d', ...githubDevDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` ) ],
 			{
 				stdio: 'inherit',
 			}
 		);
+
+		promises.push(
+			new Promise< void >( ( resolve, reject ) => {
+				p.on( 'close', ( code ) => {
+					if ( code === 0 ) {
+						resolve();
+					} else {
+						reject( code );
+					}
+				} );
+			} )
+		);
 	}
+
+	await Promise.all( promises );
 };
 
 ( async () => {

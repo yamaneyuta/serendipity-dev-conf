@@ -7,10 +7,24 @@ import * as path from 'path';
 import { spawn } from 'child_process';
 
 const main = async () => {
-	await updateRepost();
+	// 実行時の引数を取得
+	const args = process.argv.slice( 2 );
+	if ( args.length === 0 ) {
+		console.log( 'Usage: dev-update <option>' );
+		process.exit( 1 );
+	}
+
+	switch ( args[ 0 ] ) {
+		case 'packages':
+			await updatePackages();
+			break;
+		default:
+			console.log( `Unknown option: ${ args[ 0 ] }` );
+			process.exit( 1 );
+	}
 };
 
-const updateRepost = async () => {
+const updatePackages = async () => {
 	// コマンドを実行したディレクトリにあるpackage.jsonを読み込む
 	const cwd = process.cwd();
 	const packageJsonPath = path.join( cwd, 'package.json' );

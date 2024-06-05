@@ -69,17 +69,15 @@ const updatePackages = async () => {
 			}
 		);
 
-		promises.push(
-			new Promise< void >( ( resolve, reject ) => {
-				p.on( 'close', ( code ) => {
-					if ( code === 0 ) {
-						resolve();
-					} else {
-						reject( code );
-					}
-				} );
-			} )
-		);
+		await new Promise< void >( ( resolve, reject ) => {
+			p.on( 'close', ( code ) => {
+				if ( code === 0 ) {
+					resolve();
+				} else {
+					reject( code );
+				}
+			} );
+		} );
 	}
 	// devDependenciesのパッケージを再インストール
 	if ( githubDevDependencies.length > 0 ) {
@@ -95,20 +93,16 @@ const updatePackages = async () => {
 			}
 		);
 
-		promises.push(
-			new Promise< void >( ( resolve, reject ) => {
-				p.on( 'close', ( code ) => {
-					if ( code === 0 ) {
-						resolve();
-					} else {
-						reject( code );
-					}
-				} );
-			} )
-		);
+		await new Promise< void >( ( resolve, reject ) => {
+			p.on( 'close', ( code ) => {
+				if ( code === 0 ) {
+					resolve();
+				} else {
+					reject( code );
+				}
+			} );
+		} );
 	}
-
-	await Promise.all( promises );
 };
 
 const updateDevContainerFiles = async () => {

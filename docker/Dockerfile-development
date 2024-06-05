@@ -1,0 +1,14 @@
+# - `npx playwright install-deps`がUbuntu24.04で動作しない(2024/6/1時点)ため、Ubuntu22.04を使用
+#   https://github.com/microsoft/playwright/issues/30368
+
+FROM ubuntu:22.04
+
+# 各種ツールをインストールするかどうかのフラグ。
+# デフォルトから変更する場合はcompose.yml(build.args)で指定すること。
+ARG INSTALL_NODE=true
+ARG INSTALL_LAZYGIT=true
+ARG INSTALL_PLAYWRIGHT=false
+
+# apt installを実行
+ADD apt-install.sh /tmp/apt-install.sh
+RUN /bin/bash /tmp/apt-install.sh && rm /tmp/apt-install.sh

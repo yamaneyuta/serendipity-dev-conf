@@ -52,9 +52,13 @@ const updateRepost = () => {
 			'npm install',
 			githubDevDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` )
 		);
-		spawn( 'npm', [ 'install', ...githubDevDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` ) ], {
-			stdio: 'inherit',
-		} );
+		spawn(
+			'npm',
+			[ 'install', '-d', ...githubDevDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` ) ],
+			{
+				stdio: 'inherit',
+			}
+		);
 	}
 };
 

@@ -23,18 +23,17 @@ const githubDevDependencies = Object.entries( packageJson.devDependencies ).filt
 
 // githubを参照しているリポジトリが無い場合は終了
 if ( githubDependencies.length === 0 && githubDevDependencies.length === 0 ) {
-	console.log( 'No github dependencies' ); // eslint-disable-line no-console
+	console.log( 'No github dependencies' );
 	process.exit( 0 );
 }
 
 // githubを参照しているリポジトリをすべて削除する
 const deletePackages = [ ...githubDependencies, ...githubDevDependencies ].map( ( [ key, value ] ) => key );
-console.log( 'deletePackages', deletePackages ); // eslint-disable-line no-console
+console.log( 'deletePackages', deletePackages );
 spawn( 'npm', [ 'uninstall', ...deletePackages ], { stdio: 'inherit' } );
 
 // dependenciesのパッケージを再インストール
 if ( githubDependencies.length > 0 ) {
-	// eslint-disable-next-line no-console
 	console.log(
 		'npm install',
 		githubDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` )
@@ -45,7 +44,6 @@ if ( githubDependencies.length > 0 ) {
 }
 // devDependenciesのパッケージを再インストール
 if ( githubDevDependencies.length > 0 ) {
-	// eslint-disable-next-line no-console
 	console.log(
 		'npm install',
 		githubDevDependencies.map( ( [ key, value ] ) => `${ key }@${ value }` )

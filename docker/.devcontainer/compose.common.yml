@@ -1,0 +1,8 @@
+services:
+  development:
+    build:
+      context: .
+      dockerfile: Dockerfile-development
+      args:
+        - INSTALL_LAZYGIT=${INSTALL_LAZYGIT:-true}
+    command: /bin/sh -c "while sleep 1000; do :; done"

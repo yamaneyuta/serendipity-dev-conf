@@ -18,6 +18,9 @@ const main = async () => {
 		case 'package':
 			await updatePackages();
 			break;
+		case 'devcontainer':
+			await updateDevContainerFiles();
+			break;
 		default:
 			console.log( `Unknown option: ${ args[ 0 ] }` );
 			process.exit( 1 );
@@ -106,6 +109,23 @@ const updatePackages = async () => {
 	}
 
 	await Promise.all( promises );
+};
+
+const updateDevContainerFiles = async () => {
+	// ../dockerディレクトリにあるファイル一覧を取得
+	const dockerDir = path.join( __dirname, '..', 'docker', '.devcontainer' );
+	const files = fs.readdirSync( dockerDir );
+
+	const cwd = process.cwd();
+	// 同じ名前のファイルが実行ディレクトリの.devcontainer以下に存在する場合は上書き
+	for ( const file of files ) {
+		const srcPath = path.join( dockerDir, '.devcontainer', file );
+		const destPath = path.join( cwd, '.devcontainer', file );
+		if ( fs.existsSync( destPath ) ) {
+			fs.copyFileSync( srcPath, destPath );
+			console.log( `Copy ${ srcPath } to ${ destPath }` );
+		}
+	}
 };
 
 ( async () => {

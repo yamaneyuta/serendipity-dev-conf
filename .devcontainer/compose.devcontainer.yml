@@ -2,8 +2,8 @@ services:
   # Update this to the name of the service you want to work with in your compose.yml file
   development:
     build:
-      context: ../docker
-      dockerfile: Dockerfile-node
+      context: ../docker/.devcontainer
+      dockerfile: Dockerfile-development
 
     # Uncomment if you want to override the service's Dockerfile to one in the .devcontainer
     # folder. Note that the path of the Dockerfile and context is relative to the *primary*

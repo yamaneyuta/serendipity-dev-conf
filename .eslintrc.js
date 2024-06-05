@@ -6,4 +6,6 @@ config.rules = {
 	'no-console': 'off',
 };
 
+config.ignorePatterns = [ 'dist/' ];
+
 module.exports = config;

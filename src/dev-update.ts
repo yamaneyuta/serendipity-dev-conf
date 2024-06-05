@@ -119,7 +119,7 @@ const updateDevContainerFiles = async () => {
 	const cwd = process.cwd();
 	// 同じ名前のファイルが実行ディレクトリの.devcontainer以下に存在する場合は上書き
 	for ( const file of files ) {
-		const srcPath = path.join( dockerDir, '.devcontainer', file );
+		const srcPath = path.join( dockerDir, file );
 		const destPath = path.join( cwd, '.devcontainer', file );
 		if ( fs.existsSync( destPath ) ) {
 			fs.copyFileSync( srcPath, destPath );

@@ -3,11 +3,15 @@
 	"version": "1.0.0",
 	"private": true,
 	"files": [
+		"bin",
 		"docker",
 		"eslint",
 		"prettier",
 		"typescript"
 	],
+	"bin": {
+		"dev-update": "bin/dev-update.sh"
+	},
 	"scripts": {
 		"format": "eslint --fix -c eslint/.eslintrc.js . && prettier --config prettier/.prettierrc.js --write .",
 		"lint": "eslint -c eslint/.eslintrc.js . && prettier --config prettier/.prettierrc.js --check ."

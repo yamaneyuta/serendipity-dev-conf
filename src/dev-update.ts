@@ -15,7 +15,7 @@ const main = async () => {
 	}
 
 	switch ( args[ 0 ] ) {
-		case 'packages':
+		case 'package':
 			await updatePackages();
 			break;
 		default:

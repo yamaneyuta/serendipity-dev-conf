@@ -7,7 +7,9 @@
 	// The .devcontainer/compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
 		// "compose.yml",
-		"compose.devcontainer.yml"
+		"compose.devcontainer.yml",
+		// 1つめのymlファイルのパスを基準にDockerfileのコンテキストを取得しているのでcommom.ymlは後で読み込む
+		"../docker/.devcontainer/compose.common.yml"
 	],
 	"postCreateCommand": "npm install",
 

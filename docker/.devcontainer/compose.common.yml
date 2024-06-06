@@ -2,4 +2,4 @@ services:
   development:
     environment:
       CHOKIDAR_USEPOLLING: ${CHOKIDAR_USEPOLLING:-true} # WSL2用(default: false)
-      CHOKIDAR_INTERVAL: ${CHOKIDAR_INTERVAL:-300}      # WSL2用(default: 100)
+      CHOKIDAR_INTERVAL: ${CHOKIDAR_INTERVAL:-300} # WSL2用(default: 100)

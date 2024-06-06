@@ -17,7 +17,7 @@
     "lint": "eslint . && prettier --config prettier/.prettierrc.js --check .",
     "prepare": "npx tsc --module CommonJS --outDir dist src/*.ts && sed -i '1s/^/#!\\/usr\\/bin\\/env node\\n/' dist/*.js"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@wordpress/eslint-plugin": "^18.1.0",
     "@wordpress/prettier-config": "^3.15.0",
     "eslint-import-resolver-typescript": "^3.6.1",

@@ -16,8 +16,9 @@ const main = async () => {
 
 	switch ( args[ 0 ] ) {
 		case 'package':
-			await updatePackages();
-			break;
+			throw new Error(); // peerDependenciesは手動で直す必要がでてくるため、一旦未使用
+		// await updatePackages();
+		// break;
 		case 'devcontainer':
 			await updateDevContainerFiles();
 			break;

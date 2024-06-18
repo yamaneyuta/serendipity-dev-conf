@@ -10,6 +10,7 @@ module.exports = {
 			options: {
 				tabWidth: 2,
 				useTabs: false,
+				singleQuote: false,
 			},
 		},
 		{

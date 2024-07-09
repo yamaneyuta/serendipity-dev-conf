@@ -15,8 +15,7 @@
   "scripts": {
     "deploy": "npx ts-node .bin/deploy-devcontainer-files.ts",
     "format": "eslint --fix . && prettier --config prettier/.prettierrc.js --write .",
-    "lint": "eslint . && prettier --config prettier/.prettierrc.js --check .",
-    "prepare": "npx tsc --module CommonJS --outDir dist src/*.ts && sed -i '1s/^/#!\\/usr\\/bin\\/env node\\n/' dist/*.js"
+    "lint": "eslint . && prettier --config prettier/.prettierrc.js --check ."
   },
   "peerDependencies": {
     "@wordpress/eslint-plugin": "^18.1.0",

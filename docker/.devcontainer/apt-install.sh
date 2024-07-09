@@ -28,3 +28,9 @@ fi
 
 # Clean up
 apt clean && rm -rf /var/lib/apt/lists/*
+
+
+# /root/.bashrc内の`#force_color_prompt=yes`のコメントアウトを解除する(rootのターミナル表示に色をつける)
+if [ "$(id -u)" = "0" ]; then
+    sed -i 's/#force_color_prompt=yes/force_color_prompt=yes/' ~/.bashrc
+fi

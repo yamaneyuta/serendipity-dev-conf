@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update
-apt install git curl -y
+apt install git curl lsof -y
 
 # Lazygit
 # ※ifの条件に`[]`を使うと`if test xxx;`と同じ意味になるため、`if [ xxx ];`と書かないこと

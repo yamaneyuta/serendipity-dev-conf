@@ -26,6 +26,6 @@
     "prettier": "npm:wp-prettier@^3.0.3"
   },
   "devDependencies": {
-    "@types/node": "^20.14.13"
+    "@types/node": "^22.0.2"
   }
 }

@@ -3,11 +3,12 @@
 
 FROM ubuntu:22.04
 
+ENV DEVCONTAINER=true
+
 # 各種ツールをインストールするかどうかのフラグ。
 # デフォルトから変更する場合はcompose.yml(build.args)で指定すること。
 ARG INSTALL_NODE=true
 ARG INSTALL_LAZYGIT=true
-ARG INSTALL_PLAYWRIGHT=false
 
 # apt installを実行
 ADD apt-install.sh /tmp/apt-install.sh

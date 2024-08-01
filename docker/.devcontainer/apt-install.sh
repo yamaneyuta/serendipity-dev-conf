@@ -20,11 +20,6 @@ if "${INSTALL_NODE}"; then
     apt install nodejs -y
 fi
 
-# Playwright
-if "${INSTALL_PLAYWRIGHT}"; then
-    yes | npx playwright install --with-deps
-fi
-
 
 # Clean up
 apt clean && rm -rf /var/lib/apt/lists/*

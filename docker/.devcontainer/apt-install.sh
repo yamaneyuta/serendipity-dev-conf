@@ -1,8 +1,8 @@
 #!/bin/bash
 
-apt update
+apt-get update
 # sudo: ubuntuユーザーで操作するため
-apt install git curl lsof sudo -y
+apt-get install git curl lsof sudo -y
 
 # Lazygit
 # ※ifの条件に`[]`を使うと`if test xxx;`と同じ意味になるため、`if [ xxx ];`と書かないこと
@@ -18,12 +18,12 @@ fi
 if "${INSTALL_NODE}"; then
     # hardhat 2.22.3がnodejs 22.x系で動作しないため、20.x系を指定
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-    apt install nodejs -y
+    apt-get install nodejs -y
 fi
 
 
 # Clean up
-apt clean && rm -rf /var/lib/apt/lists/*
+apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 # /root/.bashrc内の`#force_color_prompt=yes`のコメントアウトを解除する(rootのターミナル表示に色をつける)

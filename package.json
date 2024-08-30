@@ -9,9 +9,6 @@
     "prettier",
     "typescript"
   ],
-  "bin": {
-    "dev-update": "dist/dev-update.js"
-  },
   "scripts": {
     "deploy": "npx ts-node .bin/deploy-devcontainer-files.ts",
     "format": "eslint --fix . && prettier --config prettier/.prettierrc.js --write .",

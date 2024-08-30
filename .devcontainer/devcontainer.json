@@ -11,7 +11,7 @@
 		// 1つめのymlファイルのパスを基準にDockerfileのコンテキストを取得しているのでcommom.ymlは後で読み込む
 		"../docker/.devcontainer/compose.common.yml"
 	],
-	"postCreateCommand": "npm install",
+	"postCreateCommand": "sudo chown -R $(whoami):$(whoami) . && npm install",
 
 	// The 'service' property is the name of the service for the container that VS Code should
 	// use. Update this value and .devcontainer/compose.yml to the real service name.
@@ -27,7 +27,7 @@
 				"ms-azuretools.vscode-docker"
 			]
 		}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -48,5 +48,5 @@
 	// "customizations": {},
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "devcontainer"
+	"remoteUser": "ubuntu"
 }

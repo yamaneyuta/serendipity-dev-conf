@@ -13,3 +13,13 @@ ARG INSTALL_LAZYGIT=true
 # apt installを実行
 ADD apt-install.sh /tmp/apt-install.sh
 RUN /bin/bash /tmp/apt-install.sh && rm /tmp/apt-install.sh
+
+# ubuntuユーザーが存在しない場合は追加
+RUN id ubuntu > /dev/null 2>&1 || useradd -m -s /bin/bash ubuntu
+
+# ubuntuはパスワード無しでsudoが実行できるようにする
+RUN echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/ubuntu
+
+# # ここからubuntuユーザーで操作
+# USER ubuntu
+# WORKDIR /home/ubuntu

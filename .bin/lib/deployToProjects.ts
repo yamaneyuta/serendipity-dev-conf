@@ -19,7 +19,7 @@ export const deployToProjects = ( src: string, destRelativeDir: string ) => {
 		// コピー先に同名のファイルが存在する場合のみコピー
 		if ( fs.existsSync( dest ) ) {
 			fs.copyFileSync( src, dest );
-			console.log( 'dest: ', dest ); // eslint-disable-line no-console
+			console.log( path.resolve( dest ) ); // eslint-disable-line no-console
 		}
 	}
 };

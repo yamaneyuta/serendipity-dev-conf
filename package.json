@@ -19,10 +19,10 @@
     "update:package": "npx npm-check-updates -u --target minor"
   },
   "devDependencies": {
-    "@types/node": "^20.14.13",
+    "@types/node": "^20.16.2",
     "@wordpress/eslint-plugin": "^18.1.0",
     "@wordpress/prettier-config": "^3.15.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "npm-run-all": "^4.1.5",
     "prettier": "npm:wp-prettier@^3.0.3",
     "tsx": "^4.19.0"

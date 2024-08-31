@@ -1,6 +1,6 @@
 {
   "name": "@yamaneyuta/serendipity-dev-conf",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "private": true,
   "files": [
     "bin",
@@ -19,7 +19,7 @@
     "update:package": "npx npm-check-updates -u --target minor"
   },
   "peerDependencies": {
-		"@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.12",
     "@wordpress/eslint-plugin": "^18.1.0",
     "@wordpress/prettier-config": "^3.15.0",
     "eslint-import-resolver-typescript": "^3.6.3",

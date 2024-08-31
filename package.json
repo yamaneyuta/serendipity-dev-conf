@@ -12,7 +12,6 @@
   "scripts": {
     "deploy": "run-s deploy:*",
     "deploy:devcontainer": "tsx .bin/deploy-devcontainer-files.ts",
-    "deploy:jest": "tsx .bin/deploy-jest-config.ts",
     "format": "eslint --fix . && prettier --config prettier/.prettierrc.js --write .",
     "lint": "eslint . && prettier --config prettier/.prettierrc.js --check .",
     "release": "npx release-it",

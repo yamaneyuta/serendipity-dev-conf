@@ -13,7 +13,6 @@ const main = () => {
 
 	for ( const src of srcFiles ) {
 		deployToProjects( src, destRelativeDir );
-		console.log(); // eslint-disable-line no-console
 	}
 };
 

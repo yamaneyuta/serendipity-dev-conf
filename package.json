@@ -6,6 +6,7 @@
     "bin",
     "docker",
     "eslint",
+    "jest",
     "prettier",
     "typescript"
   ],

@@ -10,7 +10,9 @@
     "typescript"
   ],
   "scripts": {
-    "deploy": "npx ts-node .bin/deploy-devcontainer-files.ts",
+    "deploy": "run-s deploy:*",
+    "deploy:devcontainer": "npx ts-node .bin/deploy-devcontainer-files.ts",
+    "deploy:jest": "npx tsx .bin/deploy-jest-config.ts",
     "format": "eslint --fix . && prettier --config prettier/.prettierrc.js --write .",
     "lint": "eslint . && prettier --config prettier/.prettierrc.js --check .",
     "release": "npx release-it",
